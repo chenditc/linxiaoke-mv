@@ -1,4 +1,4 @@
-#!/Users/chensusumu/anaconda/bin/python
+#!/usr/bin/python
 import base64
 import json
 import os
