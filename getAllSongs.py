@@ -107,7 +107,7 @@ def get_user_id_from_user_page(user_url):
     scripts = soup.find_all("script")
     lines = [ dom.get_text() for dom in scripts ]
 
-    user_id_match = re.search(r'userid.*\'(\d+)\'', html)
+    user_id_match = re.search(r'userid.*\"(\d+)\"', html)
     if user_id_match != None:
         return user_id_match.groups()[0]
     else:
