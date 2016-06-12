@@ -2,6 +2,6 @@
 cd /home/ec2-user/linxiaoke-mv
 echo $(date) >> ./updateLog
 ./getAllSongs.py --user-url http://changba.com/s/h4X81hN_geb7fpHjSxOO1Q >> ./updateLog
-git add . >> ./updateLog
-git commit -m "Update songs" >> ./updateLog
-git push >> ./updateLog
+git add . >> ./updateLog 2>&1
+git commit -m "Update songs" >> ./updateLog 2>&1
+git push >> ./updateLog 2>&1
