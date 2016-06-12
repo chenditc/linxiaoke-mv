@@ -93,12 +93,12 @@ def download_video(video_name, video_url):
 
     if os.path.isfile(video_name):
         # skip the video already downloaded
-        print "Video already exists, skipping", video_name
+        print "Video already exists, skipping", video_name.encode('utf-8').strip()
         return
 
-    print "Downloading", video_name, "from", video_url
+    print "Downloading", video_name.encode('utf-8').strip(), "from", video_url
     wget.download(video_url, video_name)
-    print video_name, "download succeed."
+    print video_name.encode('utf-8').strip(), "download succeed."
     quit()
 
 def get_user_id_from_user_page(user_url):
