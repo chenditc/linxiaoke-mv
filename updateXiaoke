@@ -1,0 +1,2 @@
+#!/bin/bash
+./getAllSongs.py --user-url http://changba.com/s/h4X81hN_geb7fpHjSxOO1Q
