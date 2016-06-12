@@ -1,2 +1,7 @@
 #!/bin/bash
-./getAllSongs.py --user-url http://changba.com/s/h4X81hN_geb7fpHjSxOO1Q
+cd /home/ec2-user/linxiaoke-mv
+echo $(date) >> ./updateLog
+./getAllSongs.py --user-url http://changba.com/s/h4X81hN_geb7fpHjSxOO1Q >> ./updateLog
+git add .
+git commit -m "Update songs"
+git push
