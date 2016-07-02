@@ -36,24 +36,12 @@ def get_user_song_map(user_id):
         for song_obj in songs:
             song_name = song_obj[u'caption']
             song_name = strip_song_name(song_name)
-            if (song_name == ""):
-                continue
             song_url = song_obj[u'video'] 
-            if song_url == "":
-                print song_obj
+            if (song_name == "" or song_url == ""):
+                continue
             song_map[song_name] = song_url
 
     return song_map
-
-def get_video_address(song_url):
-    # Try cdn address first
-    url = get_cdn_address(song_url)
-
-    # If cdn address failed, try boke address
-    if url == "":
-        url = get_boke_video(song_url)
-
-    return url
 
 def download_video(video_name, video_url):
     if ".mp4" in video_url:
@@ -66,9 +54,13 @@ def download_video(video_name, video_url):
         print "Video already exists, skipping", video_name.encode('utf-8').strip()
         return
 
+    assert video_url != ""
     print "Downloading", video_name.encode('utf-8').strip(), "from", video_url
-    wget.download(video_url, video_name)
-    print video_name.encode('utf-8').strip(), "download succeed."
+    try:
+        wget.download(video_url, video_name)
+        print video_name.encode('utf-8').strip(), "download succeed."
+    except:
+        print "Failed to download:", video_name.encode('utf-8').strip(), "from", video_url
 
 def get_user_id_from_user_page(user_url):
     pattern = r"meipai.com/user/([0-9]+)"
