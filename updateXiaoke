@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ec2-user/linxiaoke-mv
+cd /home/ec2-user/linxiaoke/linxiaoke-mv
 echo $(date) >> ./updateLog
 ./getAllSongs.py --user-url http://changba.com/s/h4X81hN_geb7fpHjSxOO1Q >> ./updateLog
 ./getMeipaiVideos.py --user-url http://meipai.com/user/18239365 >> ./updateLog
